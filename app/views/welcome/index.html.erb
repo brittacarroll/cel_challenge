@@ -1,0 +1,57 @@
+
+<div class="welcome">
+  <div class="small-12 columns welcome_page">
+    <div class="small-12 medium-8 medium-centered columns">
+      <div class="small-12 columns centered">
+
+        <h2>Celmatix Coding Challenge</h2>
+      </div>
+      <div class="small-12 columns">
+        <div class="small-6 columns">
+          <div class="small-12 columns centered font_size">
+            <h3>Customer User</h3>
+          </div>
+          <div class="small-12 columns centered">
+            <ul class="breadcrumbs">
+              <%= link_to "Sign in", new_customer_user_session_path, id: "customer_user_sign_in" %> |
+              <%= link_to "Sign up", new_customer_user_registration_path, id: "customer_user_sign_up" %>
+            </ul>
+          </div>
+        </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+        <tr>
+          <td><%= product['name'] %></td>
+          <td><%= product['brand']%></td>
+          <td><%= product['model'] %></td>
+          <td><%= product['price'] %></td>
+        <tr>
+          <% end %>
+      </tbody>
+
+
+    <div class="small-6 columns centered">
+      <div class="small-12 columns font_size">
+        <h3>Site Administrator</h3>
+      </div>
+
+      <div class="small-12 columns">
+        <ul class="breadcrumbs">
+            <%= link_to "Sign in", new_site_administrator_session_path, id: "site_administrator_sign_in" %> |
+            <%= link_to "Sign up", new_site_administrator_registration_path, id: "site_administrator_sign_up" %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
