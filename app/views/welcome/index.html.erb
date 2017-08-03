@@ -3,7 +3,6 @@
   <div class="small-12 columns welcome_page">
     <div class="small-12 medium-8 medium-centered columns">
       <div class="small-12 columns centered">
-
         <h2>Celmatix Coding Challenge</h2>
       </div>
       <div class="small-12 columns">
@@ -19,19 +18,19 @@
           </div>
         </div>
 
-        <div class="small-6 columns centered">
-          <div class="small-12 columns font_size">
-            <h3>Site Administrator</h3>
-          </div>
-
-          <div class="small-12 columns">
-            <ul class="breadcrumbs">
-                <%= link_to "Sign in", new_site_administrator_session_path, id: "site_administrator_sign_in" %> |
-                <%= link_to "Sign up", new_site_administrator_registration_path, id: "site_administrator_sign_up" %>
-            </ul>
-          </div>
-          <br></br>
+      <div class="small-6 columns centered">
+        <div class="small-12 columns font_size">
+          <h3>Site Administrator</h3>
         </div>
+
+        <div class="small-12 columns">
+          <ul class="breadcrumbs">
+              <%= link_to "Sign in", new_site_administrator_session_path, id: "site_administrator_sign_in" %> |
+              <%= link_to "Sign up", new_site_administrator_registration_path, id: "site_administrator_sign_up" %>
+          </ul>
+        </div>
+        <br></br>
+      </div>
 
   <% @products.each do |product| %>
       <div class="wrapper" id='toggle-modal' data-toggle="modal" data-target="#product-modal">
@@ -43,26 +42,6 @@
         </div>
       </div>
 
-    <%= content_for :extra_footer do %>
-      <script type="text/javascript">
-      $(document).ready(function() {
-        $('#toggle-modal').click(function(e) {
-          e.preventDefault();
-          $('#modal').data('id', $(this).data('id'));
-          $(this).modal();
-        });
-
-        $('#modal').on('shown.bs.modal', function() {
-          $('#modal').find('view-product-table')
-            .append($('<tr class="product-info">'))
-            .append($('<td>').text(product.price));
-
-        })
-
-      });
-      </script>
-    <% end %>
-
     <div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
      <div class="modal-dialog">
         <div class="modal-content">
@@ -72,21 +51,19 @@
           </div>
           <div class="modal-body">
             <table class="product-info-table">
-
               <td>Name: <%= product['name'] %></td>
               <td>Brand: <%= product['brand'] %></td>
               <td>Model: <%= product['model'] %></td>
               <td>Price: <%= product['price'] %></td>
-      
-          </table>
+            </table>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
