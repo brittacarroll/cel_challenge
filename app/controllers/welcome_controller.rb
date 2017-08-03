@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     data_hash = JSON.parse(file)
     @products = data_hash['products']
 
-    binding.pry
+    # binding.pry
 
   end
 end
